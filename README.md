@@ -110,7 +110,7 @@
 
 <section class="section" id="contacto">
   <h2>Contacto</h2>
-  <p>Correo: contacto@oficash.com | WhatsApp: +57 300 123 4567</p>
+  <p>Correo: oficash.barranquilla@gmail.com | WhatsApp: +57 317 781 2159</p>
   <p>Ubicación: Colombia</p>
 </section>
 
@@ -120,3 +120,29 @@
 
 </body>
 </html>
+<section class="section" id="contacto">
+  <h2>Contacto</h2>
+  <form onsubmit="enviarWhatsApp(event)">
+    <label>Nombre:</label><br />
+    <input type="text" id="nombre" required style="width: 100%; padding: 10px; margin-bottom: 10px;" /><br />
+    <label>Teléfono:</label><br />
+    <input type="text" id="telefono" required style="width: 100%; padding: 10px; margin-bottom: 10px;" /><br />
+    <label>Mensaje:</label><br />
+    <textarea id="mensaje" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 10px;"></textarea><br />
+    <button type="submit" style="background-color: #002e5b; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Enviar por WhatsApp</button>
+  </form>
+</section>
+
+<script>
+function enviarWhatsApp(e) {
+  e.preventDefault();
+  const nombre = document.getElementById('nombre').value;
+  const telefono = document.getElementById('telefono').value;
+  const mensaje = document.getElementById('mensaje').value;
+
+  const texto = `Hola, soy ${nombre} (${telefono}). ${mensaje}`;
+  const url = `https://wa.me/573001234567?text=${encodeURIComponent(texto)}`;
+
+  window.open(url, '_blank');
+}
+</script>
